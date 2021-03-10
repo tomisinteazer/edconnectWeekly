@@ -28,28 +28,30 @@ async function postData(url = "", data = {}) {
   return response.json(); // parses JSON response into native JavaScript objects
 }
 
-if (
-  firstName &&
-  lastname &&
-  email &&
-  password &&
-  program &&
-  matricNum &&
-  graduationYear
-) {
-  let postReqHeader = {
-    firstName,
-    lastname,
-    email,
-    password,
-    program,
-    matricNum,
-    graduationYear,
-  };
-  postData(url, postReqHeader).then((data) => {
-    console.log(data); // JSON data parsed by `data.json()` call
-  });
-} else {
-  alert("ensure all feilds are filled with correct values");
-}
 //git pull upstream master && git push origin master.
+let sendreq = () => {
+  if (
+    firstName &&
+    lastname &&
+    email &&
+    password &&
+    program &&
+    matricNum &&
+    graduationYear
+  ) {
+    let postReqHeader = {
+      firstName,
+      lastname,
+      email,
+      password,
+      program,
+      matricNum,
+      graduationYear,
+    };
+    postData(url, postReqHeader).then((data) => {
+      console.log(data); // JSON data parsed by `data.json()` call
+    });
+  } else {
+    alert("ensure all feilds are filled with correct values");
+  }
+};
